@@ -65,41 +65,46 @@ namespace Venice.Controllers
 
         [HttpPost]
         [Authorize]
-        public ActionResult UploadImage(HttpPostedFileBase UploadedImage, string galleryId)
+        public ActionResult UploadImage(HttpPostedFileBase[] UploadedImages, string galleryId)
         {
-            if (UploadedImage == null)
+            if (UploadedImages == null || UploadedImages.Length <= 0)
                 throw new FileNotFoundException("No image supplied, please try again.");
 
             var message = string.Empty;
-            
-            if (UploadedImage.ContentType != "image/pjpeg" && UploadedImage.ContentType != "image/jpeg" && UploadedImage.ContentType != "image/png" && UploadedImage.ContentType != "image/gif")
+            foreach (var UploadedImage in UploadedImages)
             {
-                message = "Not a valid file type.";
-            }
-            else if (UploadedImage.ContentLength > Constants.ImageSize)
-            {
-                message = "File size is too large, please limit this to 1MB.";
-            }
-            else
-            {
-                //var filename = new Guid() + ".png";
-                var image = new ImagesDto()
-                                {
-                                    //Url = filename,
-                                    UploadedBy = "Authorized User",
-                                    GalleryId =Convert.ToInt32(galleryId)
-                                };
-                var imageId = GalleryQueries.UploadImage(image);
-                if (imageId > 0)
-                {
-                    var p = Server.MapPath("~") + @"Images\GalleryImages\";
-                  new WebImage(UploadedImage.InputStream).Save(p + imageId + ".png", Constants.ImageType);
-                    message = "Image uploaded successfully";
-                }else
-                {
-                    message = "There was some problem with image upload. Please try again.";
-                }
 
+                if (UploadedImage.ContentType != "image/pjpeg" && UploadedImage.ContentType != "image/jpeg" &&
+                    UploadedImage.ContentType != "image/png" && UploadedImage.ContentType != "image/gif")
+                {
+                    message = "Not a valid file type.";
+                }
+                else if (UploadedImage.ContentLength > Constants.ImageSize)
+                {
+                    message = "File size is too large, please limit this to 1MB.";
+                }
+                else
+                {
+                    //var filename = new Guid() + ".png";
+                    var image = new ImagesDto()
+                                    {
+                                        //Url = filename,
+                                        UploadedBy = "Authorized User",
+                                        GalleryId = Convert.ToInt32(galleryId)
+                                    };
+                    var imageId = GalleryQueries.UploadImage(image);
+                    if (imageId > 0)
+                    {
+                        var p = Server.MapPath("~") + @"Images\GalleryImages\";
+                        new WebImage(UploadedImage.InputStream).Save(p + imageId + ".png", Constants.ImageType);
+                        message = "Images uploaded successfully";
+                    }
+                    else
+                    {
+                        message = "There was some problem with images upload. Please try again.";
+                    }
+
+                }
             }
             TempData["Message"] = message;
             return RedirectToAction("Edit", new { @id = galleryId });

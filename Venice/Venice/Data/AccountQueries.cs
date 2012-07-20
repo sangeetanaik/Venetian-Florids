@@ -22,9 +22,9 @@ namespace Venice.Data
                                     + userName + "', '"
                                     + password + "', '"
                                     + email + "', '"
-                                    + DateTime.Now + "', '"
+                                    + DateTime.Now.ToString("M/d/yyyy hh:mm:ss tt") + "', '"
                                     + userName + "', '"
-                                    + DateTime.Now + "', '"
+                                    + DateTime.Now.ToString("M/d/yyyy hh:mm:ss tt") + "', '"
                                     + userName + "'); SELECT SCOPE_IDENTITY()";
 
                 using (var cmd = new SqlCommand(createCommand, conn))

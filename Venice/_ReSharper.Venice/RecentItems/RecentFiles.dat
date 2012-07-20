@@ -1,7 +1,5 @@
 ﻿<RecentFiles>
   <RecentFiles>
-    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:DTO/f:GalleryDto.cs" caret="133" fromTop="7" />
-    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Scripts/f:jquery.cycle.lite.js" caret="817" fromTop="26" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/f:Web.Release.config" caret="1299" fromTop="27" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Home/f:About.cshtml" caret="0" fromTop="0" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Account/f:ChangePasswordSuccess.cshtml" caret="0" fromTop="0" />
@@ -12,30 +10,27 @@
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Account/f:Register.cshtml" caret="0" fromTop="0" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/f:Web.config" caret="1260" fromTop="21" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Blog/f:Index.cshtml" caret="502" fromTop="18" />
-    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Infrastructure/f:CKEditorHelpers.cs" caret="20827" fromTop="36" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Infrastructure/f:Constants.cs" caret="322" fromTop="11" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/f:Web.config" caret="799" fromTop="16" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Controllers/f:GalleryController.cs" caret="298" fromTop="13" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Gallery/f:Index.cshtml" caret="688" fromTop="25" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Controllers/f:HomeController.cs" caret="515" fromTop="21" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Data/f:GalleryQueries.cs" caret="8488" fromTop="34" />
-    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Controllers/f:BlogController.cs" caret="1884" fromTop="30" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Content/f:Site.css" caret="1086" fromTop="24" />
-    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Data/f:BlogQueries.cs" caret="3150" fromTop="14" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Home/f:Index.cshtml" caret="849" fromTop="30" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Shared/f:_LogOnPartial.cshtml" caret="0" fromTop="0" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Account/f:LogOn.cshtml" caret="532" fromTop="14" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Gallery/f:Edit.cshtml" caret="0" fromTop="0" />
-    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Blog/f:Post.cshtml" caret="90" fromTop="7" />
-    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Blog/f:View.cshtml" caret="552" fromTop="18" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Gallery/f:View.cshtml" caret="0" fromTop="0" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Shared/f:_Layout.cshtml" caret="556" fromTop="14" />
+    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Controllers/f:BlogController.cs" caret="0" fromTop="0" />
+    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Blog/f:View.cshtml" caret="399" fromTop="19" />
+    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Infrastructure/f:CKEditorHelpers.cs" caret="12761" fromTop="22" />
+    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Blog/f:Post.cshtml" caret="651" fromTop="26" />
+    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:DTO/f:PostDto.cs" caret="257" fromTop="11" />
+    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Data/f:BlogQueries.cs" caret="3540" fromTop="23" />
   </RecentFiles>
   <RecentEdits>
-    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Gallery/f:Edit.cshtml" caret="1339" fromTop="25" />
-    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Gallery/f:View.cshtml" caret="373" fromTop="12" />
-    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Gallery/f:View.cshtml" caret="987" fromTop="17" />
-    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Gallery/f:View.cshtml" caret="2038" fromTop="31" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Home/f:Index.cshtml" caret="811" fromTop="22" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/f:Web.config" caret="866" fromTop="18" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Content/f:Site.css" caret="310" fromTop="6" />
@@ -62,5 +57,9 @@
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Content/f:Site.css" caret="1006" fromTop="18" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Gallery/f:View.cshtml" caret="218" fromTop="9" />
     <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Shared/f:_Layout.cshtml" caret="556" fromTop="14" />
+    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Data/f:BlogQueries.cs" caret="8562" fromTop="25" />
+    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Blog/f:Post.cshtml" caret="651" fromTop="26" />
+    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Views/d:Blog/f:Post.cshtml" caret="430" fromTop="18" />
+    <File id="AD3A7D78-A228-4741-B468-59C2C88F158D/d:Data/f:BlogQueries.cs" caret="3790" fromTop="26" />
   </RecentEdits>
 </RecentFiles>

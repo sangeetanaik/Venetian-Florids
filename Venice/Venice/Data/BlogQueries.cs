@@ -105,10 +105,10 @@ namespace Venice.Data
                 conn.Open();
                 var createCommand = "INSERT INTO Posts (Title,Body,CreatedOn,CreatedBy,UpdatedOn,UpdatedBy) VALUES ('"
                                     + post.Title.Replace("'", "''") + "', '"
-                                    + post.Body.Replace("'", "''")+ "', "
-                                    + DateTime.Now.ToShortDateString() + ", '"
-                                    + post.CreatedBy + "', "
-                                    + DateTime.Now.ToShortDateString() + ", '"
+                                    + post.Body.Replace("'", "''")+ "', '"
+                                    + DateTime.Now.ToString("M/d/yyyy hh:mm:ss tt") + "', '"
+                                    + post.CreatedBy + "', '"
+                                    + DateTime.Now.ToString("M/d/yyyy hh:mm:ss tt") + "', '"
                                     + post.UpdatedBy + "'); SELECT SCOPE_IDENTITY()";
 
                 using (var cmd = new SqlCommand(createCommand, conn))
@@ -129,7 +129,7 @@ namespace Venice.Data
                 conn.Open();
                 var updateCommand = "UPDATE Posts SET  Title = '" + post.Title.Replace("'", "''") +
                                     "',Body = '" + post.Body.Replace("'", "''") +
-                                    "',UpdatedOn = '" + DateTime.Now +
+                                    "',UpdatedOn = '" + DateTime.Now.ToString("M/d/yyyy hh:mm:ss tt") +
                                     "',UpdatedBy = '" + post.UpdatedBy +
                                     "' WHERE PostId = " + post.PostId;
 
@@ -169,7 +169,7 @@ namespace Venice.Data
                 var createCommand = "INSERT INTO Comments (PostId,Message,CreatedOn,CreatedBy) VALUES ("
                                     + comment.PostId + ", '"
                                     + comment.Message + "', '"
-                                    + DateTime.Now + "', '"
+                                    + DateTime.Now.ToString("M/d/yyyy hh:mm:ss tt") + "', '"
                                     + comment.CreatedBy + "');" 
                                     + " UPDATE Posts SET CommentsCount = CommentsCount + 1 WHERE PostId = " + comment.PostId;
 
@@ -224,7 +224,7 @@ namespace Venice.Data
             {
                 PostId = Convert.ToInt32(dr["PostId"]),
                 Title = dr["Title"] != DBNull.Value ? dr["Title"].ToString() : string.Empty,
-                Body = dr["Body"] != DBNull.Value ? dr["Body"].ToString() : string.Empty,
+                Body = dr["Body"] != DBNull.Value ? HttpUtility.HtmlDecode(dr["Body"].ToString()) : string.Empty,
                 CreatedBy = dr["CreatedBy"] != DBNull.Value ? dr["CreatedBy"].ToString() : string.Empty,
                 UpdatedBy = dr["UpdatedBy"] != DBNull.Value ? dr["UpdatedBy"].ToString() : string.Empty,
                 CreatedOn = dr["CreatedOn"] != DBNull.Value ? Convert.ToDateTime(dr["CreatedOn"].ToString()) : DateTime.MinValue,

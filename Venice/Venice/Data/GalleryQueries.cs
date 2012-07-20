@@ -23,8 +23,8 @@ namespace Venice.Data
                 var createCommand = "INSERT INTO Images (Title,Description,Url,UploadedOn,UploadedBy, GalleryId) VALUES ('"
                     + (image.Title != null ? image.Title.ToDbCleanString() : image.Title) + "', '"
                                     + (image.Description != null ? image.Description.ToDbCleanString() : image.Description) + "', '"
-                                    + "', "
-                                    + DateTime.Now.ToShortDateString() + ", '"
+                                    + "', '"
+                                    + DateTime.Now.ToString("M/d/yyyy hh:mm:ss tt") + "', '"
                                     + image.UploadedBy+ "', "
                                     + image.GalleryId + "); SELECT SCOPE_IDENTITY()";
 
@@ -47,7 +47,7 @@ namespace Venice.Data
                 var createCommand = "INSERT INTO Galleries (Title,Description,CreatedOn,CreatedBy) VALUES ('"
                                     + gallery.Title.ToDbCleanString()  + "', '"
                                     + gallery.Description.ToDbCleanString() + "', '"
-                                    + DateTime.Now + "', '"
+                                    + DateTime.Now.ToString("M/d/yyyy hh:mm:ss tt") + "', '"
                                     + gallery.CreatedBy + "'); SELECT SCOPE_IDENTITY()";
 
                 using (var cmd = new SqlCommand(createCommand, conn))

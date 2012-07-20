@@ -26,7 +26,7 @@
      <a href="#" id="addImages">Add images</a>   
 @using (Html.BeginForm("uploadimage", "Gallery", FormMethod.Post, new { id = "imgUploadForm", enctype = "multipart/form-data", style="display:none" }))
     {
-        <input type="file" id="UploadedImage" name="UploadedImage" value="Upload image" />
+        <input type="file" multiple="multiple" id="UploadedImages" name="UploadedImages" value="Upload image" />
         <input type="hidden" id="galleryId" name="galleryId" value="@Model.Gallery.GalleryId"/>
         <input type="submit" value="Upload"/>
     }
