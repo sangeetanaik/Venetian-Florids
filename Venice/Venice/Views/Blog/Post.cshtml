@@ -1,0 +1,26 @@
+﻿@model Venice.DTO.PostDto
+@using System.Web.Mvc
+
+@{
+    ViewBag.Title = "Post";
+}
+
+
+
+<h2>@(Model != null ? Model.Title : "New post")</h2>
+
+<form id="postForm" method="POST" action="@Url.Action("PostBlog")">
+    @Html.LabelFor(m => m.Title, "Title")
+    @Html.TextBoxFor(m => m.Title)
+    <br/>
+    @Html.LabelFor(m => m.Body, "Post")
+    @*@Html.TextAreaFor(m => m.Body)*@
+    @Html.CKEditorHeaderScripts()
+    @Html.CKEditorFor(m => m.Body, "uiColor:'#996611', htmlEncodeOutput : true, entities : false")
+
+
+    @Html.HiddenFor(m => m.PostId)
+
+    <input type="submit" value='@(Model != null ? "Update" : "Post")'/>
+</form>
+

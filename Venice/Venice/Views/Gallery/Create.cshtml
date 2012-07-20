@@ -1,0 +1,19 @@
+﻿@model Venice.DTO.GalleryDto
+@{
+    ViewBag.Title = "Create";
+}
+  <form id="frmCreateGallery" method="POST" action="@Url.Action("CreateGallery")">
+            <h2>Create Gallery</h2>
+            <div>
+                @Html.LabelFor(m => m.Title, "Gallery Title")
+                @Html.TextBoxFor(m => m.Title)
+            </div>
+            <div>
+                @Html.LabelFor(m => m.Description, "Gallery Description")
+                @Html.TextBoxFor(m => m.Description)
+            </div>
+            <input type="submit" value="Create Gallery"/>
+        </form>
+
+
+

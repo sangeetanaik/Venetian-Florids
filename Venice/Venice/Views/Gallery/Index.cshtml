@@ -1,0 +1,32 @@
+﻿
+@using System.Configuration
+@model List<Venice.DTO.GalleryDto>
+@{
+    ViewBag.Title = "Galleries";
+}
+
+@section Styles
+{
+    <link href="../../Content/gallery.css" rel="stylesheet" type="text/css" />
+}
+
+<h2>Galleries</h2>
+
+@foreach (var v in Model)
+{
+    <div class="g-frame">
+        <a href="@Url.Action("View", new {id = v.GalleryId})">
+            <span class="g-title">@v.Title</span>
+            <span class="g-cover">
+                <img src="@(ConfigurationManager.AppSettings["ImageStore"] + v.CoverImage.ImageId + ".png")" alt="@v.CoverImage.Title" />
+            </span>
+            <span class="g-desc">@v.Description</span>
+        </a>
+    </div>
+}
+
+@if (Request.IsAuthenticated)
+{   <div class="controls">
+        <a href="@Url.Action("Create", "Gallery")">[Create a new gallery]</a>
+    </div>
+}

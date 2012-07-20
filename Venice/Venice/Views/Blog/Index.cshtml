@@ -1,0 +1,34 @@
+﻿@model Venice.Models.Blog.BlogrollModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Blogroll</h2>
+@if (Request.IsAuthenticated)
+{
+    <a href="@Url.Action("NewPost", "Blog")">Create a new post</a>
+}
+@foreach (var p in Model.Posts)
+{
+    <div>
+        <h3><a href="@Url.Action("View", "Blog",new{ @id= p.PostId })">@p.Title</a></h3>
+        @if (Request.IsAuthenticated)
+        {
+            <a href="@Url.Action("DeletePost", new {id = p.PostId})">Delete post</a>
+        }
+        <div>@Html.Raw(HttpUtility.HtmlDecode(p.Body))</div>
+        <br/><br/>
+        <span>Posted on: @p.CreatedOn.ToShortDateString() / Posted by: @p.CreatedBy</span>
+        <div>
+        @if (p.CommentCount > 0)
+        {
+            <a href="@Url.Action("View", "Blog",new{ @id= p.PostId })">Comments(@p.CommentCount)</a>
+        }
+        else
+        {
+            <text>No comments</text>
+        }
+        </div>
+    </div>
+    
+}

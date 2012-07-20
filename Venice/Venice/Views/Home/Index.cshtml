@@ -1,0 +1,64 @@
+﻿@using System.Configuration
+@model List<Venice.DTO.ImagesDto>
+           
+           @{
+    ViewBag.Title = "Home Page";
+}
+
+@section Styles
+{
+    <style type="text/css">
+        .pics {
+            height: 232px;
+            width: 232px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pics img {
+            padding: 15px;
+            border: 1px solid #ccc;
+            background-color: #eee;
+            width: 200px;
+            height: 200px;
+            top: 0;
+            left: 0
+        } 
+        
+
+    </style>
+}
+
+<h2>@ViewBag.Message</h2>
+<p>
+    @*To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">http://asp.net/mvc</a>.*@
+</p>
+
+@*<div id="slideshow" class="pics">
+    <div id="imgTitle"></div>
+    @foreach (var v in Model)
+    {
+            <img src="@(ConfigurationManager.AppSettings["ImageStore"] + v.ImageId + ".png")" alt="@v.Title" width="200" height="200" alt="@v.Title"  />
+            
+    }
+</div>*@
+
+<div style="text-align: center">
+@foreach (var v in Model)
+ {
+     <a href="@Url.Action("view", "gallery", new{ @id= v.GalleryId})">
+         <img src="@(ConfigurationManager.AppSettings["ImageStore"] + v.ImageId + ".png")" alt="@v.Title"  style="max-width:400px" />
+     </a>
+ }
+</div>
+
+
+@section Script
+{
+<script src="../../Scripts/jquery.cycle.lite.js" type="text/javascript"></script>
+   
+  
+
+}
+
+

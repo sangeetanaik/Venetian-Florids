@@ -1,0 +1,65 @@
+﻿
+@using System.Configuration
+@using Venice.Infrastructure
+@model Venice.Models.Gallery.GalleryModel
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>@Model.Gallery.Title</h2>
+<a href="@Url.Action("index", "gallery")"><< Back to galleries</a>
+<div id="galleria">
+    @foreach (var v in Model.Images)
+    {
+        <img src="@(ConfigurationManager.AppSettings["ImageStore"] + v.ImageId + ".png")" data-title="@v.Title" data-description="@v.Description" alt="@v.Title" />
+    }
+  </div>
+
+
+@*<div id="gallery-wrap" style="background:black;">
+    <div id="gallery" style="overflow:hidden;padding:10px;height:500px;">
+        <ul style="margin:0;padding:0;list-style: none;width:7000px;height:100%;position:relative;left:250px;">
+            @for (int i = 0; i < Model.Images.Count; i++)
+            {
+                <li style="width:500px;height:100%;text-align: center;float:left;position:absolute;top:0px;left:@(i*1000)px">
+                    <img src="@(ConfigurationManager.AppSettings["ImageStore"] + Model.Images[i].ImageId + ".png")" data-title="@Model.Images[i].Title" data-description="@Model.Images[i].Description" alt="@Model.Images[i].Title" style="height:100%" />  
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="thumbs-wrap" style="position:relative;">
+        <div style="width:40px;height:100px;background:red;position:absolute;top:10px;left:20px;"></div> 
+        <div style="width:40px;height:100px;background:red;position:absolute;top:10px;right:20px;"></div> 
+        <div id="thumbs" style="overflow:hidden;margin:0px auto;padding:10px 0;width:795px;">
+             
+            <ul style="width:@(Model.Images.Count*115)px;;list-style: none;position:relative;left:0px;overflow:hidden;margin:0;padding:0">
+                @for (int i = 0; i < Model.Images.Count; i++)
+                {
+                    <li style="width: 100px; height: 100px; float: left; margin-right: 15px;">
+                        <img src="@(ConfigurationManager.AppSettings["ImageStore"] + Model.Images[i].ImageId + ".png")"  style="height:100%;width:100%" />
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+   </div>*@
+
+<h3>@Model.Gallery.Description</h3>
+<div>Created on: @Model.Gallery.CreatedOn</div>
+<div>Created by: @Model.Gallery.CreatedBy</div>
+
+@if (Request.IsAuthenticated)
+{
+    <a href="@Url.Action("Edit", new {@id = Model.Gallery.GalleryId})">Edit this Gallery</a>
+}
+<script type="text/javascript">
+    Galleria.loadTheme('/scripts/galleria/themes/classic/galleria.classic.min.js');
+  
+    $('#galleria').galleria({
+        height: 600
+    });
+    Galleria.run();
+</script>
+
+    
+    <script></script>

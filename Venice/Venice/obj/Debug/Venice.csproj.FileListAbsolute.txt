@@ -1,0 +1,6 @@
+C:\Users\sangeeta.naik\Documents\Visual Studio 2010\Projects\Venice\Venice\bin\Venice.dll
+C:\Users\sangeeta.naik\Documents\Visual Studio 2010\Projects\Venice\Venice\bin\Venice.pdb
+C:\Users\sangeeta.naik\Documents\Visual Studio 2010\Projects\Venice\Venice\bin\CKEditor.NET.pdb
+C:\Users\sangeeta.naik\Documents\Visual Studio 2010\Projects\Venice\Venice\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\sangeeta.naik\Documents\Visual Studio 2010\Projects\Venice\Venice\obj\Debug\Venice.dll
+C:\Users\sangeeta.naik\Documents\Visual Studio 2010\Projects\Venice\Venice\obj\Debug\Venice.pdb

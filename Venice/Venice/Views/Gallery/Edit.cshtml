@@ -1,0 +1,97 @@
+﻿@using System.Configuration
+@using Venice.Infrastructure
+@model Venice.Models.Gallery.GalleryModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Gallery</h2>
+
+
+<a href="@Url.Action("Index")"><< Back to Galleries</a><br/><br/>
+
+@if (TempData["Message"] != null)
+{
+    <span>@TempData["Message"].ToString()</span>
+}
+    <div>
+        @Html.LabelFor(m => m.Gallery.Title, "Gallery Title")
+        @Html.TextBoxFor(m => m.Gallery.Title)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Gallery.Description, "Gallery Description")
+        @Html.TextAreaFor(m => m.Gallery.Description)
+    </div>
+     
+     <a href="#" id="addImages">Add images</a>   
+@using (Html.BeginForm("uploadimage", "Gallery", FormMethod.Post, new { id = "imgUploadForm", enctype = "multipart/form-data", style="display:none" }))
+    {
+        <input type="file" id="UploadedImage" name="UploadedImage" value="Upload image" />
+        <input type="hidden" id="galleryId" name="galleryId" value="@Model.Gallery.GalleryId"/>
+        <input type="submit" value="Upload"/>
+    }
+    @if (Model.Images != null && Model.Images.Count > 0)
+    {
+        <div id="divGalleryImages">
+            @foreach (var v in Model.Images)
+            {
+                <div>
+                    <img src="@(ConfigurationManager.AppSettings["ImageStore"] + v.ImageId + ".png")" alt="@v.Title" width="10%" height="10%"/><br/>
+                    @if (!string.IsNullOrEmpty(v.Title))
+                    {
+                        <span>Title: @v.Title</span><br/>
+                    }
+                    @if (!string.IsNullOrEmpty(v.Description))
+                    {
+                        <span>Description: @v.Description</span><br/>
+                    }
+                    <a href="#" class="editImage" data-id="@v.ImageId" data-title="@v.Title" data-desc="@v.Description">Edit image details</a><br/>
+                    <a href="@Url.Action("RemoveImage", new { galleryId = Model.Gallery.GalleryId, imageId = v.ImageId })">Remove image</a><br/>
+                    <a href="@Url.Action("MakeCoverImage", new { galleryId = Model.Gallery.GalleryId, imageId = v.ImageId })">Make this the cover image</a><br/>
+                </div>
+            }
+    
+        </div>
+        
+        <div id="dlgEditImageDetails" style="display:none">
+            <form id="frmEditImageDetails" method="POST" action="@Url.Action("UpdateImageDetails")">
+                <div>
+                    <div>Title: <input type="text" id="imgTitle" name="imgTitle"/></div>
+                    <div>Description: <textarea id="imgDesc" name="imgDesc" ></textarea></div>
+                    
+                    <input type="submit" value="Update"/>
+                    <input type="hidden" name="imgId" id="imgId"/>
+                    <input type="hidden" id="galleryId" name="galleryId" value="@Model.Gallery.GalleryId"/>
+                </div>
+            </form>
+        </div>
+    }
+    
+@section Script {
+        <script src="../../Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#addImages").click(function (e) {
+                    e.preventDefault();
+                    $("#imgUploadForm").show();
+                });
+
+                $(".editImage").click(function (e) {
+                    e.preventDefault();
+                    $("form#frmEditImageDetails #imgId").val($(this).attr("data-id"));
+                    $("form#frmEditImageDetails #imgTitle").val($(this).attr("data-title"));
+                    $("form#frmEditImageDetails #imgDesc").val($(this).attr("data-desc"));
+                    $("#dlgEditImageDetails").dialog("open");
+                });
+
+                $("#dlgEditImageDetails").dialog({
+                    autoOpen: false,
+                    width: 400,
+                    draggable: false,
+                    modal: true,
+                    resizable: false,
+                    buttons: null
+                });
+            });
+        </script>
+    }

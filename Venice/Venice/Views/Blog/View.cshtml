@@ -1,0 +1,45 @@
+﻿@model Venice.Models.Blog.BlogPostModel
+@{
+    ViewBag.Title = "View";
+}
+
+<a href="@Url.Action("Index")"><< Back to posts</a>
+<h2>@Model.Post.Title</h2>
+@if (Request.IsAuthenticated)
+{
+    <a href="@Url.Action("EditPost", new {@id = Model.Post.PostId})">Edit this post</a>
+}
+
+
+@if (TempData["Message"] != null)
+{
+    <div>@TempData["Message"]</div><br/>
+}
+
+<div id="post">
+    <p>@Html.Raw(HttpUtility.HtmlDecode(Model.Post.Body))</p> 
+    <div>Posted by: @Model.Post.CreatedBy</div>
+    <div>Posted on: @Model.Post.CreatedOn</div>
+</div>
+<div id="commentSection">
+    <h4>Comments(@Model.Post.CommentCount)</h4>
+    <form id="commentForm" method="POST" action="@Url.Action("AddComment")">
+        @Html.LabelFor(m => m.NewComment.CreatedBy, "Name")
+        @Html.TextBoxFor(m => m.NewComment.CreatedBy) <br/>
+        
+        @Html.LabelFor(m => m.NewComment.Message, "Comments")
+        @Html.TextAreaFor(m => m.NewComment.Message)
+        
+        @Html.HiddenFor(x => x.NewComment.PostId)
+        <input type="submit" value="Post"/>
+    </form>
+    <br/>
+    <div id="comments">
+        @foreach (var c in Model.Comments)
+        {
+            <div>@c.Message</div>
+            <div>Posted by: @c.CreatedBy <span>Posted on: @c.CreatedOn</span></div>
+            <br/>
+        }
+    </div>
+</div>
